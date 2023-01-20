@@ -6,8 +6,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily : {
-        'montserrat': ['"Montserrat"', 'sans-serif']
+        'montserrat': ['"Montserrat"', 'sans-serif'],
       },
+      backgroundImage:{
+        'shot1': "url('./shot1.jpg')",
+        'shot2': "url('./shot2.jpg')",
+        'shot3': "url('./shot3.jpg')",
+        'shot4': "url('./shot4.jpg')",
+      },
+      colors:{
+        'transparent-rgba': 'rgba(255,255,255,0.3)',
+        'transparent-rgba2': 'rgba(29,33,35,0.03)',
+      }
     },
   },
   plugins: [],
