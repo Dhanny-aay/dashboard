@@ -54,7 +54,7 @@ function App() {
           </div>
         </div>
         
-
+        <div className=' flex flex-row w-[90%]'>
         <div className="second-row px-8 relative w-[50%]">
           <div className='search-bar relative rounded-[30px]'>
             <input type="" placeholder='Search' className='w-[350px] h-[40px] shadow-sm bg-[#f8f8f8] rounded-[30px] px-16 py-2 text-sm font-medium font-montserrat' name="" id=""/>
@@ -243,6 +243,7 @@ function App() {
 
           </div>
 
+        </div>
         </div>
 
       </div>
