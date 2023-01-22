@@ -20,10 +20,11 @@ import lustrate from './lustrate.svg';
 
 function App() {
   return (
-    <div className="App bg-white p-8">
+    <div className="App bg-white py-8 pr-8 w-full">
       <div className=" relative flex flex-row">
-
-        <div className=" sidebar h-[95vh] rounded-[20px] bg-black w-[75px] py-10 shadow">
+        
+        <div className=' w-[10%] flex justify-center md:px-8'>
+        <div className=" sidebar h-[95vh] rounded-[20px] lg:static md:left-4 md:fixed  bg-black w-[75px] py-10 shadow">
           <div className=' flex items-center h-full flex-col space-y-[35px] relative'>
             <button className=' w-[40px] h-[40px] rounded-[50%] bg-white flex justify-center items-center'>
                <img src={ shape } className=' w-[20px]' alt="" />
@@ -53,9 +54,10 @@ function App() {
 
           </div>
         </div>
+        </div>
         
-        <div className=' flex flex-row w-[90%]'>
-        <div className="second-row px-8 relative w-[50%]">
+        <div className=' flex lg:flex-row md:ml-10 lg:ml-0 flex-col w-[90%]'>
+        <div className="second-row px-4 relative md:w-full lg:w-[50%]">
           <div className='search-bar relative rounded-[30px]'>
             <input type="" placeholder='Search' className='w-[350px] h-[40px] shadow-sm bg-[#f8f8f8] rounded-[30px] px-16 py-2 text-sm font-medium font-montserrat' name="" id=""/>
             <img src={ search } className=' absolute top-3 left-4 w-[20px]' alt="" />
@@ -78,12 +80,12 @@ function App() {
             <p className=' ml-auto font-montserrat text-xs font-normal text-gray-700'>View All</p>
           </div>
 
-          <div className=' flex flex-row mt-2 justify-between w-full'>
+          <div className=' flex flex-row mt-2 space-x-5 w-full '>
             <div className=' bg-[#f8f8f8] p-3 rounded-2xl shadow-sm'>
               <p className=' font-montserrat font-medium text-base'>Prototyping</p>
-              <p className=' w-[140px] text-xs font-montserrat font-light mt-2 p-1 text-gray-600'>A prototype is an early example, model or projection of a product to test ideas until it is brought to life.</p>
+              <p className=' text-xs font-montserrat font-light mt-2 p-1 text-gray-600'>A prototype is an early example, model or projection of a product to test ideas until it is brought to life.</p>
               <div className=' flex flex-row mt-2'>
-                <img src={ users } className=' h-6' alt="" />
+                <img src={ users } className=' h-6 w-6 mr-auto' alt="" />
                 <div className='ml-auto flex flex-row space-x-1'>
                   <img src={ clap } className='' alt="" />
                   <p className=' font-montserrat text-sm font-medium tracking-tighter'>1.5k</p>
@@ -92,10 +94,10 @@ function App() {
             </div>
             
             <div className=' bg-black p-3 rounded-2xl shadow-sm'>
-              <p className=' font-montserrat font-medium text-base text-gray-300'>Typography</p>
-              <p className=' w-[140px] text-xs  font-montserrat font-light mt-2 p-1 text-gray-300'>Typography is the art of arranging letters and text in a way that makesit appealing and clear to the reader.</p>
+              <p className=' font-montserrat font-medium text-base text-gray-300'>Prototyping</p>
+              <p className=' text-xs  font-montserrat font-light mt-2 p-1 text-gray-300'>A prototype is an early example, model or projection of a product to test ideas until it is brought to life.</p>
               <div className=' flex flex-row mt-2'>
-                <img src={ users } className=' h-6' alt="" />
+                <img src={ users } className=' h-6 w-6 mr-auto' alt="" />
                 <div className='ml-auto flex flex-row space-x-1'>
                   <img src={ wclap } className='' alt="" />
                   <p className='text-gray-300 font-montserrat text-sm font-medium tracking-tighter'>1.5k</p>
@@ -105,9 +107,9 @@ function App() {
 
             <div className=' bg-[#f8f8f8] p-3 rounded-2xl shadow-sm'>
               <p className=' font-montserrat font-medium text-base'>Prototyping</p>
-              <p className=' w-[140px] text-xs font-montserrat font-light mt-2 p-1 text-gray-600'>A prototype is an early example, model or projection of a product to test ideas until it resembles the final product.</p>
+              <p className=' text-xs font-montserrat font-light mt-2 p-1 text-gray-600'>A prototype is an early example, model or projection of a product to test ideas until it is brought to life.</p>
               <div className=' flex flex-row mt-2'>
-                <img src={ users } className=' h-6' alt="" />
+                <img src={ users } className=' h-6 w-6 mr-auto' alt="" />
                 <div className='ml-auto flex flex-row space-x-1'>
                   <img src={ clap } className='' alt="" />
                   <p className=' font-montserrat text-sm font-medium tracking-tighter'>1.5k</p>
@@ -128,8 +130,8 @@ function App() {
           </div>
         </div>
 
-        <div className=' third-row w-[45%]'>
-          <div className=' ml-auto flex justify-end'>
+        <div className=' third-row lg:w-[50%] md:w-full pl-4 pr-2'>
+          <div className=' ml-auto flex justify-end lg:static absolute top-0 right-0'>
             <div className=' flex items-center space-x-2'>
               <img src= { bell } className='' alt="" />
               <select name="language" className=' font-montserrat text-xs font-light text-gray-700' id="">
@@ -139,7 +141,7 @@ function App() {
               </select>
             </div>
 
-            <div className=' flex flex-row ml-7 space-x-2'>
+            <div className=' flex flex-row ml-7 space-x-2 items-center justify-center'>
               <div className=' '>
                 <p className=' font-montserrat text-gray-700 font-bold text-sm'>John Doe</p>
                 <p className=' font-montserrat text-gray-700 font-normal text-xs text-right'>England</p>
