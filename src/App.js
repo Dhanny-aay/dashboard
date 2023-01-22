@@ -21,16 +21,16 @@ import lustrate from './lustrate.svg';
 function App() {
   return (
     <div className="App bg-white py-8 pr-8 w-full">
-      <div className=" relative flex flex-row">
+      <div className=" md:relative flex flex-row">
         
-        <div className=' w-[10%] flex justify-center md:px-8'>
-        <div className=" sidebar h-[95vh] rounded-[20px] lg:static md:left-4 md:fixed  bg-black w-[75px] py-10 shadow">
-          <div className=' flex items-center h-full flex-col space-y-[35px] relative'>
-            <button className=' w-[40px] h-[40px] rounded-[50%] bg-white flex justify-center items-center'>
+        <div className=' w-full md:w-[10%] flex md:justify-center items-center md:px-6'>
+        <div className=" sidebar md:h-[95vh] rounded-t-2xl md:rounded-[20px]  lg:static md:left-4 fixed bottom-0 md:bottom-8  bg-black md:w-[75px] w-[100%] z-50 md:py-10 shadow py-4">
+          <div className=' flex items-center md:h-full flex-row md:flex-col md:space-y-[35px] relative space-x-[20px] md:space-x-0'>
+            <button className=' w-[40px] hidden h-[40px] rounded-[50%] bg-white md:flex justify-center items-center'>
                <img src={ shape } className=' w-[20px]' alt="" />
             </button>
 
-            <div className=' space-y-[40px] flex flex-col'>
+            <div className=' md:space-y-[40px] flex md:flex-col flex-row justify-between'>
               <button className=''>
                 <img src= { home } className=' w-[20px]' alt="" />
               </button>
@@ -56,11 +56,11 @@ function App() {
         </div>
         </div>
         
-        <div className=' flex lg:flex-row md:ml-10 lg:ml-0 flex-col w-[90%]'>
-        <div className="second-row px-4 relative md:w-full lg:w-[50%]">
+        <div className=' flex lg:flex-row  md:ml-10 lg:ml-0 flex-col w-[90%]'>
+        <div className="second-row md:px-4 relative md:w-full lg:w-[50%]">
           <div className='search-bar relative rounded-[30px]'>
-            <input type="" placeholder='Search' className='w-[350px] h-[40px] shadow-sm bg-[#f8f8f8] rounded-[30px] px-16 py-2 text-sm font-medium font-montserrat' name="" id=""/>
-            <img src={ search } className=' absolute top-3 left-4 w-[20px]' alt="" />
+            <input type="" placeholder='Search' className='md:w-[350px] w-[130px] h-[40px] shadow-sm bg-[#f8f8f8] rounded-[30px] px-8 md:px-16 py-2 text-sm font-medium font-montserrat' name="" id=""/>
+            <img src={ search } className=' absolute top-3 md:top-3 left-1 md:left-4 w-[20px]' alt="" />
           </div>
 
           <div className='stats p-6 bg-[#f8f8f8] rounded-2xl mt-8 shadow-sm w-full flex flex-row'>
@@ -131,10 +131,10 @@ function App() {
         </div>
 
         <div className=' third-row lg:w-[50%] md:w-full pl-4 pr-2'>
-          <div className=' ml-auto flex justify-end lg:static absolute top-0 right-0'>
+          <div className=' ml-auto flex justify-end lg:static absolute top-8 md:top-0 right-6 md:right-0'>
             <div className=' flex items-center space-x-2'>
               <img src= { bell } className='' alt="" />
-              <select name="language" className=' font-montserrat text-xs font-light text-gray-700' id="">
+              <select name="language" className=' font-montserrat text-xs font-light text-gray-700 md:block hidden' id="">
                 <option value="EN">EN</option>
                 <option value="FR">FR</option>
                 <option value="LT">LT</option>
