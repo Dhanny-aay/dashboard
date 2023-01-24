@@ -1,3 +1,4 @@
+import 'animate.css';
 import home from './home.png';
 import shape from './shape.png';
 import menu from './menu.png';
@@ -20,7 +21,7 @@ import lustrate from './lustrate.svg';
 
 function App() {
   return (
-    <div className="App bg-white md:py-8 md:pr-8 py-6 pr-6  w-full">
+    <div className="App bg-white md:py-8 md:pr-8 py-6 pr-6  w-full animate__fadeIn animate__animated animate__slow">
       <div className=" md:relative flex flex-row">
         
         <div className='w-full md:w-[10%] flex md:justify-center items-center md:px-6'>
