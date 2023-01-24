@@ -20,35 +20,38 @@ import lustrate from './lustrate.svg';
 
 function App() {
   return (
-    <div className="App bg-white py-8 pr-8 w-full">
+    <div className="App bg-white md:py-8 md:pr-8 py-6 pr-6  w-full">
       <div className=" md:relative flex flex-row">
         
-        <div className=' w-full md:w-[10%] flex md:justify-center items-center md:px-6'>
-        <div className=" sidebar md:h-[95vh] rounded-t-2xl md:rounded-[20px]  lg:static md:left-4 fixed bottom-0 md:bottom-8  bg-black md:w-[75px] w-[100%] z-50 md:py-10 shadow py-4">
-          <div className=' flex items-center md:h-full flex-row md:flex-col md:space-y-[35px] relative space-x-[20px] md:space-x-0'>
+        <div className='w-full md:w-[10%] flex md:justify-center items-center md:px-6'>
+        <div className=" sidebar md:h-[95vh] rounded-t-2xl md:rounded-[20px]  lg:static md:left-4 fixed bottom-0 md:bottom-8  bg-black md:w-[75px] w-[100%] z-50 md:py-10 shadow py-6 md:px-0 px-3">
+          <div className=' flex items-center md:h-full flex-row md:flex-col md:space-y-[35px] relative md:space-x-0'>
             <button className=' w-[40px] hidden h-[40px] rounded-[50%] bg-white md:flex justify-center items-center'>
                <img src={ shape } className=' w-[20px]' alt="" />
             </button>
 
-            <div className=' md:space-y-[40px] flex md:flex-col flex-row justify-between'>
+            <div className='w-full items-center md:space-y-[40px] flex md:flex-col flex-row justify-between md:space-x-0'>
               <button className=''>
-                <img src= { home } className=' w-[20px]' alt="" />
+                <img src= { home } className=' md:w-[20px] w-[25px]' alt="" />
               </button>
               <button className=''>
-                <img src= { menu } className=' w-[20px]' alt="" />
+                <img src= { menu } className=' md:w-[20px] w-[25px]' alt="" />
               </button>
               <button className=''>
-              <img src= { calendar } className=' w-[20px]' alt="" />
+              <img src= { calendar } className=' md:w-[20px] w-[25px]' alt="" />
               </button>
               <button className=''>
-              <img src= { collection } className=' w-[20px]' alt="" />
+              <img src= { collection } className=' md:w-[20px] w-[25px]' alt="" />
               </button>
               <button className=''>
-              <img src= { settings } className=' w-[20px]' alt="" />
+              <img src= { settings } className=' md:w-[20px] w-[25px]' alt="" />
+              </button>
+              <button className=' block md:hidden '>
+              <img src= { logout } className='md:w-[20px] w-[25px]' alt="" />
               </button>
             </div>
 
-            <button className=' absolute bottom-0'>
+            <button className=' absolute hidden md:block bottom-0 '>
               <img src= { logout } className='w-[20px]' alt="" />
             </button>
 
@@ -56,7 +59,7 @@ function App() {
         </div>
         </div>
         
-        <div className=' flex lg:flex-row  md:ml-10 lg:ml-0 flex-col w-[90%]'>
+        <div className=' flex lg:flex-row  md:ml-10 lg:ml-0 flex-col w-full md:w-[90%] pl-6 md:pl-0'>
         <div className="second-row md:px-4 relative md:w-full lg:w-[50%]">
           <div className='search-bar relative rounded-[30px]'>
             <input type="" placeholder='Search' className='md:w-[350px] w-[130px] h-[40px] shadow-sm bg-[#f8f8f8] rounded-[30px] px-8 md:px-16 py-2 text-sm font-medium font-montserrat' name="" id=""/>
@@ -80,7 +83,7 @@ function App() {
             <p className=' ml-auto font-montserrat text-xs font-normal text-gray-700'>View All</p>
           </div>
 
-          <div className=' flex flex-row mt-2 space-x-5 w-full '>
+          <div className=' flex md:flex-row flex-col md:space-y-0 space-y-8 mt-2 md:space-x-5 w-full '>
             <div className=' bg-[#f8f8f8] p-3 rounded-2xl shadow-sm'>
               <p className=' font-montserrat font-medium text-base'>Prototyping</p>
               <p className=' text-xs font-montserrat font-light mt-2 p-1 text-gray-600'>A prototype is an early example, model or projection of a product to test ideas until it is brought to life.</p>
@@ -130,8 +133,8 @@ function App() {
           </div>
         </div>
 
-        <div className=' third-row lg:w-[50%] md:w-full pl-4 pr-2'>
-          <div className=' ml-auto flex justify-end lg:static absolute top-8 md:top-0 right-6 md:right-0'>
+        <div className=' third-row lg:w-[50%] md:w-full md:pl-4 md:pr-2 px-0 '>
+          <div className=' ml-auto flex justify-end lg:static absolute top-4 md:top-0 right-6 md:right-0'>
             <div className=' flex items-center space-x-2'>
               <img src= { bell } className='' alt="" />
               <select name="language" className=' font-montserrat text-xs font-light text-gray-700 md:block hidden' id="">
@@ -150,7 +153,7 @@ function App() {
             </div>
           </div>
 
-          <div className=' second-col bg-[#f8f8f8] p-6 mt-8 shadow-sm rounded-2xl space-y-5'>
+          <div className=' second-col bg-[#f8f8f8] p-6 mt-8 shadow-sm rounded-2xl space-y-5 md:mb-0 mb-16'>
             <div className=' bg-white p-3 rounded-xl shadow-md flex flex-row items-center'>
               <div className=' flex flex-row'>
               <div className=' w-[40px] h-[40px] bg-[#ffeeaa] shadow flex items-center justify-center rounded-lg '>
