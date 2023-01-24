@@ -25,7 +25,7 @@ function App() {
       <div className=" md:relative flex flex-row">
         
         <div className='w-full md:w-[10%] flex md:justify-center items-center md:px-6'>
-        <div className=" sidebar md:h-[95vh] rounded-t-2xl md:rounded-[20px]  lg:static md:left-4 fixed bottom-0 md:bottom-8  bg-black md:w-[75px] w-[100%] z-50 md:py-10 shadow py-6 md:px-0 px-3">
+        <div className=" sidebar md:h-[95vh] rounded-t-2xl md:rounded-[20px]  lg:static md:left-4 fixed bottom-0 md:bottom-8  bg-black md:w-[75px] w-[100%] z-50 md:py-10 md:shadow shadow-md py-4 md:px-0 px-3">
           <div className=' flex items-center md:h-full flex-row md:flex-col md:space-y-[35px] relative md:space-x-0'>
             <button className=' w-[40px] hidden h-[40px] rounded-[50%] bg-white md:flex justify-center items-center'>
                <img src={ shape } className=' w-[20px]' alt="" />
@@ -33,22 +33,22 @@ function App() {
 
             <div className='w-full items-center md:space-y-[40px] flex md:flex-col flex-row justify-between md:space-x-0'>
               <button className=''>
-                <img src= { home } className=' md:w-[20px] w-[25px]' alt="" />
+                <img src= { home } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=''>
-                <img src= { menu } className=' md:w-[20px] w-[25px]' alt="" />
+                <img src= { menu } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=''>
-              <img src= { calendar } className=' md:w-[20px] w-[25px]' alt="" />
+              <img src= { calendar } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=''>
-              <img src= { collection } className=' md:w-[20px] w-[25px]' alt="" />
+              <img src= { collection } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=''>
-              <img src= { settings } className=' md:w-[20px] w-[25px]' alt="" />
+              <img src= { settings } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=' block md:hidden '>
-              <img src= { logout } className='md:w-[20px] w-[25px]' alt="" />
+              <img src= { logout } className='md:w-[20px] w-[20px]' alt="" />
               </button>
             </div>
 
