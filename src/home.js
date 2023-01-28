@@ -21,7 +21,7 @@ import lustrate from './lustrate.svg';
 
 const home = () => {
     return ( 
-        <div className="App bg-white md:py-8 md:pr-8 py-6 pr-6  w-full animate__fadeIn animate__animated animate__slow">
+        <div className="App bg-white md:py-8 md:pr-8 py-6 pr-6  w-full animate__fadeIn animate__animated animate__fast">
       <div className=" md:relative flex flex-row">
         
         <div className='w-full md:w-[10%] flex md:justify-center items-center md:px-6'>
