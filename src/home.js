@@ -21,7 +21,7 @@ import lustrate from './lustrate.svg';
 
 const home = () => {
     return ( 
-        <div className="App bg-white md:py-8 md:pr-8 py-6 pr-6  w-full animate__fadeIn animate__animated animate__fast">
+        <div className="App bg-white md:py-8 md:pr-8 py-6 pr-6  w-full">
       <div className=" md:relative flex flex-row">
         
         <div className='w-full md:w-[10%] flex md:justify-center items-center md:px-6'>
@@ -67,7 +67,7 @@ const home = () => {
             <img src={ search } className=' absolute top-3 md:top-3 left-1 md:left-4 w-[20px]' alt="" />
           </div>
 
-          <div className='stats p-6 bg-[#f8f8f8] rounded-2xl mt-8 shadow-sm w-full flex flex-row'>
+          <div className='stats p-6 bg-[#f8f8f8] rounded-2xl mt-8 shadow-sm w-full flex flex-row animate__animated animate__slideInLeft'>
             <div className=''>
               <p className=' font-montserrat font-bold text-xl '> Hi John Doe.</p>
               <p className=' text-sm mt-4 font-montserrat font-normal text-gray-600'>Welcome back John Doe. We are glad you are here.</p>
@@ -84,7 +84,7 @@ const home = () => {
             <p className=' ml-auto font-montserrat text-xs font-normal text-gray-700'>View All</p>
           </div>
 
-          <div className=' flex md:flex-row flex-col md:space-y-0 space-y-8 mt-2 md:space-x-5 w-full '>
+          <div className=' flex md:flex-row flex-col md:space-y-0 space-y-8 mt-2 md:space-x-5 w-full animate__animated animate__slideInLeft'>
             <div className=' bg-[#f8f8f8] p-3 rounded-2xl shadow-sm'>
               <p className=' font-montserrat font-medium text-base'>Prototyping</p>
               <p className=' text-xs font-montserrat font-light mt-2 p-1 text-gray-600'>A prototype is an early example, model or projection of a product to test ideas until it is brought to life.</p>
@@ -154,7 +154,7 @@ const home = () => {
             </div>
           </div>
 
-          <div className=' second-col bg-[#f8f8f8] p-6 mt-8 shadow-sm rounded-2xl space-y-5 md:mb-0 mb-16'>
+          <div className=' second-col bg-[#f8f8f8] p-6 mt-8 shadow-sm rounded-2xl animate__animated animate__slideInLeft space-y-5 md:mb-0 mb-16'>
             <div className=' bg-white p-3 rounded-xl shadow-md flex flex-row items-center'>
               <div className=' flex flex-row'>
               <div className=' w-[40px] h-[40px] bg-[#ffeeaa] shadow flex items-center justify-center rounded-lg '>
