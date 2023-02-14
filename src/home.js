@@ -124,7 +124,7 @@ const home = () => {
 
           <div className=' p-5 bg-[#f8f8f8] mt-5 shadow-sm rounded-2xl'>
             <div className=' flex flex-row'>
-              <p className=' text-black font-montserrat font-bold text-[20px]'>Analytics</p>
+              <p className=' text-black font-montserrat font-bold text-[20px]'>News</p>
               <div className=' ml-auto flex flex-row'>
                 <button className=' py-1 px-2 rounded-l-lg text-xs font-montserrat font-medium bg-black text-gray-300 hover:bg-white'>Weekly</button>
                 <button className=' py-1 px-2 rounded-r-lg text-xs font-montserrat font-medium text-gray-300 bg-white hover:bg-black'>Monthly</button>

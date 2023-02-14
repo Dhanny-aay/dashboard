@@ -10,6 +10,8 @@ module.exports = {
       },
       backgroundImage:{
         'shot1': "url('./shot1.jpg')",
+        'bloggy': "url('./bloggy.png')",
+        'bloggy1': "url('./bloggy1.png')",
         'shot2': "url('./shot2.jpg')",
         'shot3': "url('./shot3.jpg')",
         'shot4': "url('./shot4.jpg')",
