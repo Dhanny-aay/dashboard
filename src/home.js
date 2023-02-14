@@ -15,6 +15,8 @@ import bell from './bell.png';
 import book from './book.png';
 import next from './next.png';
 import lustrate from './lustrate.svg';
+import Wchart from './wchart';
+import { motion } from 'framer-motion';
 
 
 
@@ -24,7 +26,13 @@ const home = () => {
       <div className=" md:relative flex flex-row">
         
         <div className='w-full md:w-[10%] flex md:justify-center items-center md:px-6'>
-        <div className=" sidebar md:h-[95vh] rounded-t-2xl md:rounded-[20px]  lg:static md:left-4 fixed bottom-0 md:bottom-8  bg-black md:w-[75px] w-[100%] z-50 md:py-10 md:shadow shadow-md py-4 md:px-0 px-3">
+        <motion.div 
+
+          initial={{ x:-250 }}
+          animate={{ x:0 }}
+          transition={{ stiffness: 90, type:'spring'  }}
+
+        className=" sidebar md:h-[95vh] rounded-t-2xl md:rounded-[20px]  lg:fixed md:left-6 fixed bottom-0 md:top-5  bg-black md:w-[75px] w-[100%] z-50 md:py-10 md:shadow shadow-md py-4 md:px-0 px-3">
           <div className=' flex items-center md:h-full flex-row md:flex-col md:space-y-[35px] relative md:space-x-0'>
             <button className=' w-[40px] hidden h-[40px] rounded-[50%] bg-white md:flex justify-center items-center'>
                <img src={ shape } className=' w-[20px]' alt="" />
@@ -32,39 +40,66 @@ const home = () => {
 
             <div className='w-full items-center md:space-y-[40px] flex md:flex-col flex-row justify-between md:space-x-0'>
               <button className=''>
-                <img src= { homeicon } className=' md:w-[20px] w-[20px]' alt="" />
+                <motion.img 
+                whileHover={{ scale:1.3 }}
+                whileFocus={{ scale:1.3 }}
+                
+                src= { homeicon } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=''>
-                <img src= { menu } className=' md:w-[20px] w-[20px]' alt="" />
+                <motion.img
+                whileHover={{ scale:1.3 }}
+                src= { menu } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=''>
-              <img src= { calendar } className=' md:w-[20px] w-[20px]' alt="" />
+              <motion.img
+              whileHover={{ scale:1.3 }}
+              src= { calendar } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=''>
-              <img src= { collection } className=' md:w-[20px] w-[20px]' alt="" />
+              <motion.img
+              whileHover={{ scale:1.3 }}
+              src= { collection } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=''>
-              <img src= { settings } className=' md:w-[20px] w-[20px]' alt="" />
+              <motion.img
+              whileHover={{ scale:1.3 }}
+              src= { settings } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=' block md:hidden '>
-              <img src= { logout } className='md:w-[20px] w-[20px]' alt="" />
+              <motion.img
+              whileHover={{ scale:1.3 }}
+              src= { logout } className='md:w-[20px] w-[20px]' alt="" />
               </button>
             </div>
 
             <button className=' absolute hidden md:block bottom-0 '>
-              <img src= { logout } className='w-[20px]' alt="" />
+              <motion.img
+              whileHover={{ scale:1.3 }}
+              src= { logout } className='w-[20px]' alt="" />
             </button>
 
           </div>
-        </div>
+        </motion.div>
         </div>
         
         <div className=' flex lg:flex-row  md:ml-10 lg:ml-0 flex-col w-full md:w-[90%] pl-6 md:pl-0'>
-        <div className="second-row md:px-4 relative md:w-full lg:w-[50%]">
-          <div className='search-bar relative rounded-[30px]'>
+          <motion.div 
+              initial={{ y:650 }}
+              animate={{ y:0 }}
+              transition={{ stiffness: 50, type:'spring'  }}
+            
+          
+            className="second-row md:px-4 relative md:w-full lg:w-[50%]">
+          <motion.div 
+            initial={{ y:-250 }}
+            animate={{ y:0 }}
+            transition={{ stiffness: 50, type:'spring'  }}
+
+            className='search-bar relative rounded-[30px]'>
             <input type="" placeholder='Search' className='md:w-[350px] w-[130px] h-[40px] shadow-sm bg-[#f8f8f8] rounded-[30px] px-8 md:px-16 py-2 text-sm font-medium font-montserrat' name="" id=""/>
             <img src={ search } className=' absolute top-3 md:top-3 left-1 md:left-4 w-[20px]' alt="" />
-          </div>
+          </motion.div>
 
           <div className='stats p-6 bg-[#f8f8f8] rounded-2xl mt-8 shadow-sm w-full flex flex-row'>
             <div className=''>
@@ -123,20 +158,32 @@ const home = () => {
 
           <div className=' p-5 bg-[#f8f8f8] mt-5 shadow-sm rounded-2xl'>
             <div className=' flex flex-row'>
-              <p className=' text-black font-montserrat font-bold text-[20px]'>News</p>
+              <p className=' text-black font-montserrat font-bold text-[20px]'>Analytics</p>
               <div className=' ml-auto flex flex-row'>
                 <button className=' py-1 px-2 rounded-l-lg text-xs font-montserrat font-medium bg-black text-gray-300 hover:bg-white'>Weekly</button>
                 <button className=' py-1 px-2 rounded-r-lg text-xs font-montserrat font-medium text-gray-300 bg-white hover:bg-black'>Monthly</button>
               </div>
             </div>
-
+            <Wchart />
           </div>
-        </div>
+        </motion.div>
 
         <div className=' third-row lg:w-[50%] md:w-full md:pl-4 md:pr-2 px-0 '>
-          <div className=' ml-auto flex justify-end lg:static absolute top-4 md:top-0 right-6 md:right-0'>
+          <motion.div 
+
+            initial={{ y:-250 }}
+            animate={{ y:0 }}
+            transition={{ stiffness: 90, type:'spring'  }}
+
+            className=' ml-auto flex justify-end lg:static absolute top-4 md:top-0 right-6 md:right-0'>
             <div className=' flex items-center space-x-2'>
-              <img src= { bell } className='' alt="" />
+              <motion.img
+              
+              whileHover={{ rotate:45 }}
+              initial={{ rotate:0 }}
+              exit={{ rotate: -45 }}
+              
+              src= { bell } className='' alt="" />
               <select name="language" className=' font-montserrat text-xs font-light text-gray-700 md:block hidden' id="">
                 <option value="EN">EN</option>
                 <option value="FR">FR</option>
@@ -151,10 +198,19 @@ const home = () => {
               </div>
               <img src= { user } className=' w-[40px] h-[40px]' alt="" />
             </div>
-          </div>
+          </motion.div>
 
-          <div className=' second-col bg-[#f8f8f8] p-6 mt-8 shadow-sm rounded-2xl animate__animated animate__slideInLeft space-y-5 md:mb-0 mb-16'>
-            <div className=' bg-white p-3 rounded-xl shadow-md flex flex-row items-center'>
+          <motion.div 
+            initial={{ y:650 }}
+            animate={{ y:0 }}
+            whileInView={{ y:0 }}
+            transition={{ stiffness: 50, type:'spring' }}
+
+            className=' second-col bg-[#f8f8f8] p-6 mt-8 shadow-sm rounded-2xl space-y-5 md:mb-0 mb-16'>
+            <motion.div 
+              whileHover={{ scale:1.05 }}
+
+              className=' bg-white p-3 rounded-xl shadow-md flex flex-row items-center'>
               <div className=' flex flex-row'>
               <div className=' w-[40px] h-[40px] bg-[#ffeeaa] shadow flex items-center justify-center rounded-lg '>
                 <img src= { book } className=' w-[25px]' alt="" />
@@ -167,9 +223,11 @@ const home = () => {
               <button className='bg-[#f8f8f8] w-[30px] h-[30px] rounded-[50%] ml-auto flex justify-center items-center'>
                 <img src={ next } className='w-[20px]' alt="" />
               </button>
-            </div>
+            </motion.div>
             
-            <div className=' bg-white p-3 rounded-xl shadow-md flex flex-row items-center'>
+            <motion.div 
+            whileHover={{ scale:1.05 }}
+            className=' bg-white p-3 rounded-xl shadow-md flex flex-row items-center'>
               <div className=' flex flex-row'>
               <div className=' w-[40px] h-[40px] bg-[#bfe7fa] shadow flex items-center justify-center rounded-lg '>
                 <img src= { clap } className=' w-[25px]' alt="" />
@@ -182,10 +240,12 @@ const home = () => {
               <button className='bg-[#f8f8f8] w-[30px] h-[30px] rounded-[50%] ml-auto flex justify-center items-center'>
                 <img src={ next } className='w-[20px]' alt="" />
               </button>
-            </div>
+            </motion.div>
 
 
-            <div className=' bg-white p-3 rounded-xl shadow-md flex flex-row items-center'>
+            <motion.div 
+            whileHover={{ scale:1.05 }}
+            className=' bg-white p-3 rounded-xl shadow-md flex flex-row items-center'>
               <div className=' flex flex-row'>
                 <div className=' w-[40px] h-[40px] bg-[#f8f8f8] shadow flex items-center justify-center rounded-lg '>
                   <img src= { user1 } className=' w-[25px]' alt="" />
@@ -198,7 +258,7 @@ const home = () => {
               <button className='bg-[#f8f8f8] w-[30px] h-[30px] ml-auto rounded-[50%] flex justify-center items-center'>
                 <img src={ next } className='w-[20px]' alt="" />
               </button>
-            </div>
+            </motion.div>
 
             <div className=' py-1 flex flex-row'>
               <p className='font-bold text-black font-montserrat text-sm'>Followers</p>
@@ -246,7 +306,7 @@ const home = () => {
 
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
         </div>

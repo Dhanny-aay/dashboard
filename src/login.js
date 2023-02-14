@@ -2,18 +2,29 @@ import google from './google.png';
 import whiteblog from './whiteblog.png'
 import blog from './blog.png'
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 
 const login = () => {
     return ( 
         <div className=" content lg:px-32 py-[70px] bg-[#f8f8f8] h-[100vh] md:bg-[white] flex flex-row ">
-            <div className=' bg-black bg-bloggy bg-cover hidden lg:block h-[75vh] w-[50%] rounded-l-xl p-8'>
+            <motion.div 
+             initial={{ y:850 }}
+             animate={{ y:0 }}
+             transition={{ type:'spring', stiffness:50 }}
+            
+            className=' bg-black bg-bloggy bg-cover hidden lg:block h-[75vh] w-[50%] rounded-l-xl p-8'>
                 <span className=' flex flex-row space-x-1'>
                     <img src={ whiteblog } className=' ' alt="" />
                     <p className=" text-2xl font-bold font-montserrat text-white">Bloggy</p>
                 </span>
-            </div>
-            <div className=" login-container p-6 bg-[#f8f8f8] flex flex-col lg:p-8 items-center w-full md:w-[75%] md:ml-[12.5%] lg:ml-0 lg:w-[50%] h-[75vh] md:h-[50vh] lg:h-[75vh] rounded-r-xl relative">
+            </motion.div>
+            <motion.div 
+            
+            initial={{ y:-850 }}
+            animate={{ y:0 }}
+            transition={{ type:'spring', stiffness:50 }}
+            className=" login-container p-6 bg-[#f8f8f8] flex flex-col lg:p-8 items-center w-full md:w-[75%] md:ml-[12.5%] lg:ml-0 lg:w-[50%] h-[75vh] md:h-[50vh] lg:h-[75vh] rounded-r-xl relative">
             <span className=' lg:hidden flex flex-row items-center justify-center'>
                     <img src={ blog } className=' w-8' alt="" />
                     <p className=' text-xl md:text-2xl font-bold font-montserrat text-[#000]'>Bloggy</p>
@@ -41,7 +52,7 @@ const login = () => {
                         <p>Don't have an account? <span className=" text-gray-500 cursor-pointer">Sign Up</span></p>
                     </span>
                 </div>
-            </div>
+            </motion.div>
             
         </div>
      );
