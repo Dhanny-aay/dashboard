@@ -1,5 +1,4 @@
 import google from './google.png';
-import 'animate.css';
 import whiteblog from './whiteblog.png'
 import blog from './blog.png'
 import { Link } from 'react-router-dom';
@@ -8,13 +7,13 @@ import { Link } from 'react-router-dom';
 const login = () => {
     return ( 
         <div className=" content lg:px-32 py-[70px] bg-[#f8f8f8] h-[100vh] md:bg-[white] flex flex-row ">
-            <div className=' bg-black bg-bloggy bg-cover hidden lg:block h-[75vh] w-[50%] rounded-l-xl p-8 animate__animated animate__slideInUp animate__slow'>
+            <div className=' bg-black bg-bloggy bg-cover hidden lg:block h-[75vh] w-[50%] rounded-l-xl p-8'>
                 <span className=' flex flex-row space-x-1'>
                     <img src={ whiteblog } className=' ' alt="" />
                     <p className=" text-2xl font-bold font-montserrat text-white">Bloggy</p>
                 </span>
             </div>
-            <div className=" login-container p-6 bg-[#f8f8f8] flex flex-col lg:p-8 items-center w-full md:w-[75%] md:ml-[12.5%] lg:ml-0 lg:w-[50%] h-[75vh] md:h-[50vh] lg:h-[75vh] rounded-r-xl relative animate__animated animate__slideInDown animate__slow">
+            <div className=" login-container p-6 bg-[#f8f8f8] flex flex-col lg:p-8 items-center w-full md:w-[75%] md:ml-[12.5%] lg:ml-0 lg:w-[50%] h-[75vh] md:h-[50vh] lg:h-[75vh] rounded-r-xl relative">
             <span className=' lg:hidden flex flex-row items-center justify-center'>
                     <img src={ blog } className=' w-8' alt="" />
                     <p className=' text-xl md:text-2xl font-bold font-montserrat text-[#000]'>Bloggy</p>

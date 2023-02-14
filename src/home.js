@@ -1,4 +1,3 @@
-import 'animate.css';
 import homeicon from './home.png';
 import shape from './shape.png';
 import menu from './menu.png';
@@ -67,7 +66,7 @@ const home = () => {
             <img src={ search } className=' absolute top-3 md:top-3 left-1 md:left-4 w-[20px]' alt="" />
           </div>
 
-          <div className='stats p-6 bg-[#f8f8f8] rounded-2xl mt-8 shadow-sm w-full flex flex-row animate__animated animate__slideInLeft'>
+          <div className='stats p-6 bg-[#f8f8f8] rounded-2xl mt-8 shadow-sm w-full flex flex-row'>
             <div className=''>
               <p className=' font-montserrat font-bold text-xl '> Hi John Doe.</p>
               <p className=' text-sm mt-4 font-montserrat font-normal text-gray-600'>Welcome back John Doe. We are glad you are here.</p>
