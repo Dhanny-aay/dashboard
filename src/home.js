@@ -18,17 +18,34 @@ import lustrate from './lustrate.svg';
 import Wchart from './wchart';
 import Mchart from './mchart';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Newslist from './newslist';
+
 
 const Home = () => {
-  
+
+  // new api 
+    const url ='https://newsdata.io/api/1/news?apikey=pub_12066710874e2bee9ff50864742e719f8c042&q=blogs';
+    const [news, setNews]= useState([]);
+    
+    useEffect(()=>{
+      fetch(url)
+      .then(res => {
+        return res.json();
+      })
+      .then(data =>{
+        setNews(data.results);
+        // console.log(data.results);
+      })
+      }, []);
+  // dom manipulation for charts 
     const [show, setShowWeekly] = useState(true)
     const [hide, setShowMonthly] = useState(false)
 
     const showWeekly = ()=>{
 
       // console.log('weekly')
-      if(show == false ){
+      if(show === false ){
       setShowWeekly(true)
       setShowMonthly(false)
     }
@@ -36,7 +53,7 @@ const Home = () => {
     const showMonthly = ()=>{
 
       // console.log('monthly');
-      if(hide == false){
+      if(hide === false){
         setShowMonthly(true)
         setShowWeekly(false)
       }
@@ -228,7 +245,7 @@ const Home = () => {
             whileInView={{ y:0 }}
             transition={{ stiffness: 50, type:'spring' }}
 
-            className=' second-col bg-[#f8f8f8] p-6 mt-8 shadow-sm rounded-2xl space-y-5 md:mb-0 mb-16'>
+            className=' second-col bg-[#f8f8f8] p-6 mt-8 shadow-sm rounded-2xl space-y-3 md:mb-0 mb-16'>
             <motion.div 
               whileHover={{ scale:1.05 }}
 
@@ -327,11 +344,8 @@ const Home = () => {
               </button>
 
             </div>
-
-            <div className=' w-full bg-white p-4 rounded-2xl shadow-sm '>
-              <p className=' text-black font-montserrat font-bold text-base '>News</p>
-
-            </div>
+            <p className='font-bold text-black font-montserrat text-sm'>News</p>
+            { news && < Newslist news={news} title={'news'} />}
 
           </motion.div>
 

@@ -1,6 +1,4 @@
 import google from './google.png';
-import bloggy from './bloggy.png';
-import login from './login.svg'
 import whiteblog from './whiteblog.png'
 import blog from './blog.png'
 import { Link } from 'react-router-dom';
