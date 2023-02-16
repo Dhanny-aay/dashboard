@@ -16,11 +16,32 @@ import book from './book.png';
 import next from './next.png';
 import lustrate from './lustrate.svg';
 import Wchart from './wchart';
+import Mchart from './mchart';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
+const Home = () => {
+  
+    const [show, setShowWeekly] = useState(true)
+    const [hide, setShowMonthly] = useState(false)
 
+    const showWeekly = ()=>{
 
-const home = () => {
+      // console.log('weekly')
+      if(show == false ){
+      setShowWeekly(true)
+      setShowMonthly(false)
+    }
+  }
+    const showMonthly = ()=>{
+
+      // console.log('monthly');
+      if(hide == false){
+        setShowMonthly(true)
+        setShowWeekly(false)
+      }
+    }
+
     return ( 
         <div className="App bg-white md:py-8 md:pr-8 py-6 pr-6  w-full">
       <div className=" md:relative flex flex-row">
@@ -160,11 +181,12 @@ const home = () => {
             <div className=' flex flex-row'>
               <p className=' text-black font-montserrat font-bold text-[20px]'>Analytics</p>
               <div className=' ml-auto flex flex-row'>
-                <button className=' py-1 px-2 rounded-l-lg text-xs font-montserrat font-medium bg-black text-gray-300 hover:bg-white'>Weekly</button>
-                <button className=' py-1 px-2 rounded-r-lg text-xs font-montserrat font-medium text-gray-300 bg-white hover:bg-black'>Monthly</button>
+                <button onClick={ showWeekly } className=' py-1 px-2 rounded-l-lg text-xs font-montserrat font-medium bg-black text-gray-300 hover:bg-white'>Weekly</button>
+                <button onClick={ showMonthly } className=' py-1 px-2 rounded-r-lg text-xs font-montserrat font-medium text-gray-300 bg-white hover:bg-black'>Monthly</button>
               </div>
             </div>
-            <Wchart />
+            { show && (<Wchart />)}
+            { hide && (<Mchart />)}
           </div>
         </motion.div>
 
@@ -306,6 +328,11 @@ const home = () => {
 
             </div>
 
+            <div className=' w-full bg-white p-4 rounded-2xl shadow-sm '>
+              <p className=' text-black font-montserrat font-bold text-base '>News</p>
+
+            </div>
+
           </motion.div>
 
         </div>
@@ -317,4 +344,4 @@ const home = () => {
      );
 }
  
-export default home;
+export default Home;

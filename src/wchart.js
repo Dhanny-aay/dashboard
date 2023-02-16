@@ -1,4 +1,5 @@
 import { Line } from "react-chartjs-2";
+import { motion } from "framer-motion";
 
 import { 
     Chart as ChartJS,
@@ -65,9 +66,13 @@ const options = {
 
 const wchart = () => {
     return ( 
-        <div className=" text-white font-montserrat w-full text-xs font-medium">
+        <motion.div 
+        initial={{opacity: 0}}
+        animate={{ opacity:1 }}
+        transition={{ type:'tween', duration:1 }}
+        className=" text-white font-montserrat flex w-full text-xs font-medium">
             <Line data={data} options={options}></Line>
-        </div>
+        </motion.div>
      );
 }
  

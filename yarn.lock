@@ -3085,7 +3085,7 @@
   "resolved" "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.20.3.tgz"
   "version" "3.20.3"
 
-"core-js@^3.19.2":
+"core-js@^3.19.2", "core-js@^3.6.5":
   "integrity" "sha512-vVl8j8ph6tRS3B8qir40H7yw7voy17xL0piAjlbBUsH7WIfzoedL/ZOr1OV9FyZQLWXsayOJyV4tnRyXR85/ag=="
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.20.3.tgz"
   "version" "3.20.3"
@@ -6005,6 +6005,14 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"newsapi@^2.4.1":
+  "integrity" "sha512-yw/aZBgDwNbNMqQ1V7XFKdW2jvL8Fh4qMiU0Awin87Rt6lbPnS8OuiLaL15Ws5X82/EXhzNf/djAlPHOWVgMJg=="
+  "resolved" "https://registry.npmjs.org/newsapi/-/newsapi-2.4.1.tgz"
+  "version" "2.4.1"
+  dependencies:
+    "core-js" "^3.6.5"
+    "node-fetch" "^2.6.0"
+
 "no-case@^3.0.4":
   "integrity" "sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg=="
   "resolved" "https://registry.npmjs.org/no-case/-/no-case-3.0.4.tgz"
@@ -6012,6 +6020,13 @@
   dependencies:
     "lower-case" "^2.0.2"
     "tslib" "^2.0.3"
+
+"node-fetch@^2.6.0":
+  "integrity" "sha512-DJm/CJkZkRjKKj4Zi4BsKVZh3ValV5IR5s7LVZnW+6YMh0W1BfNA8XSs6DLMGYlId5F3KnA70uu2qepcR08Qqg=="
+  "resolved" "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.9.tgz"
+  "version" "2.6.9"
+  dependencies:
+    "whatwg-url" "^5.0.0"
 
 "node-forge@^1.2.0":
   "integrity" "sha512-dPEtOeMvF9VMcYV/1Wb8CPoVAXtp6MKMlcbAt4ddqmGqUJ6fQZFXkNZNkNlfevtNkGtaSoXf/vNNNSvgrdXwtA=="
@@ -8207,6 +8222,11 @@
   dependencies:
     "punycode" "^2.1.1"
 
+"tr46@~0.0.3":
+  "integrity" "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw=="
+  "resolved" "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
+  "version" "0.0.3"
+
 "tryer@^1.0.1":
   "integrity" "sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA=="
   "resolved" "https://registry.npmjs.org/tryer/-/tryer-1.0.1.tgz"
@@ -8462,6 +8482,11 @@
   "resolved" "https://registry.npmjs.org/web-vitals/-/web-vitals-2.1.4.tgz"
   "version" "2.1.4"
 
+"webidl-conversions@^3.0.0":
+  "integrity" "sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ=="
+  "resolved" "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz"
+  "version" "3.0.1"
+
 "webidl-conversions@^4.0.2":
   "integrity" "sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg=="
   "resolved" "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-4.0.2.tgz"
@@ -8612,6 +8637,14 @@
   "integrity" "sha512-M4yMwr6mAnQz76TbJm914+gPpB/nCwvZbJU28cUD6dR004SAxDLOOSUaB1JDRqLtaOV/vi0IC5lEAGFgrjGv/g=="
   "resolved" "https://registry.npmjs.org/whatwg-mimetype/-/whatwg-mimetype-2.3.0.tgz"
   "version" "2.3.0"
+
+"whatwg-url@^5.0.0":
+  "integrity" "sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw=="
+  "resolved" "https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz"
+  "version" "5.0.0"
+  dependencies:
+    "tr46" "~0.0.3"
+    "webidl-conversions" "^3.0.0"
 
 "whatwg-url@^7.0.0":
   "integrity" "sha512-WUu7Rg1DroM7oQvGWfOiAK21n74Gg+T4elXEQYkOhtyLeWiJFoOGLXPKI/9gzIie9CtwVLm8wtw6YJdKyxSjeg=="
