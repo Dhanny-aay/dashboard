@@ -15,11 +15,17 @@ const Newslist = (props) => {
           <span className=' w-[40px] h-[40px] bg-[#f1f1f1] flex items-center justify-center shadow rounded-lg'>
             <img src={ newsimg } className=' w-[24px] ' alt="" />
           </span>
-            <p className=' font-medi fumont-montserrat text-[12px] text-black ml-2'>{ newss.title }</p>
+          <span className=' ml-5 flex flex-col'>
+            <p className=' font-medium fumont-montserrat text-[12px] text-black'>{ newss.title.substring(0, 60)+'....' }</p>
+            <p className=' font-medium fumont-montserrat text-[10px] text-black'>{ newss.creator }</p>
+          </span>  
           <a className=' ml-auto' href={ newss.link }>
-          <button className='bg-[#f8f8f8] w-[30px] h-[30px] rounded-[50%] ml-auto flex justify-center items-center'>
+          <motion.button
+            whileHover = {{ scale:1.1 }}
+          
+          className='bg-[#f8f8f8] w-[30px] h-[30px] rounded-[50%] ml-auto flex justify-center items-center'>
             <img src={ next } className='w-[20px]' alt="" />
-          </button>
+          </motion.button>
           </a>
         </div>
     ))}
