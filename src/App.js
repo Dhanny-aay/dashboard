@@ -1,6 +1,7 @@
 import Home from "./home";
 import Login from "./login";
 import Register from "./register";
+import Payment from "./payment";
 // import Wchart from "./wchart";
 // import Mchart from "./mchart";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -12,7 +13,8 @@ function App() {
       <Routes>
         <Route path="/login" element = { <Login /> } />
         <Route path="/home" element = { <Home /> } />
-        <Route path="/" element = { <Register /> } />
+        <Route path="/register" element = { <Register /> } />
+        <Route path="/" element = { <Payment /> } />
       </Routes>
 
     </Router>
