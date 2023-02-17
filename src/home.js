@@ -20,6 +20,7 @@ import Mchart from './mchart';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Newslist from './newslist';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -339,10 +340,11 @@ const Home = () => {
               <p className=' text-center font-montserrat text-sm font-normal capitalize'>
                 Buy <span className=' font-bold'>PRO Account</span> to explore<br></br>Premium Features
               </p>
+              <Link to='/payment'>
               <button className=' p-2 mt-2 bg-black rounded-md text-white font-montserrat text-sm'>
                 Purchase Now
               </button>
-
+              </Link>
             </div>
             <p className='font-bold text-black font-montserrat text-sm'>News</p>
             { news && < Newslist news={news} title={'news'} />}
