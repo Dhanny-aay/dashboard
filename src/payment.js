@@ -41,8 +41,7 @@ const Payment = () => {
        const newExp = ()=>{
         const New = document.getElementById('exp').value;
         if(New.length == 2){
-            const expNew = New+'/';
-            setExp(expNew);
+            setExp(New);
             if(New == ''){
                 setExp('John Doe')
             }
