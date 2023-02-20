@@ -27,6 +27,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithRedirect ,GoogleAuthProvider, getRedirectResult, onAuthStateChanged,signOut  } from "firebase/auth";
 
 const Home = () => {
+  const [name, setName]=useState('John Doe')
         // Your web app's Firebase configuration
         const firebaseConfig = {
           apiKey: "AIzaSyC0orHDJb8M6MIg_P4PrnFS6rXGDr476mA",
@@ -49,7 +50,7 @@ const Home = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         // console.log(token);
     })
     }
@@ -69,9 +70,17 @@ const Home = () => {
       onAuthStateChanged(auth, (user) => {
         if(user){
           const uid = user.uid;
-          console.log(uid);
-          console.log(user);
-          console.log('Signed in')
+          // console.log(uid);
+          // console.log(user);
+          const profile = auth.currentUser;
+
+            if (profile !== null){
+            const displayName = profile.displayName;
+            const email = profile.email;
+            setName(displayName);
+          }
+
+        // console.log('Signed in')
         }
         else{
           // console.log('Signed Out')
@@ -199,8 +208,8 @@ const Home = () => {
 
           <div className='stats p-6 bg-[#f8f8f8] rounded-2xl mt-8 shadow-sm w-full flex flex-row'>
             <div className=''>
-              <p className=' font-montserrat font-bold text-xl '> Hi John Doe.</p>
-              <p className=' text-sm mt-4 font-montserrat font-normal text-gray-600'>Welcome back John Doe. We are glad you are here.</p>
+              <p className=' font-montserrat font-bold text-xl '>{'Hi' +' '+ name}</p>
+              <p className=' text-sm mt-4 font-montserrat font-normal text-gray-600'>Welcome back { name }. We are glad you are here.</p>
               <p className=' text-sm font-montserrat font-normal text-gray-600'>Inspire the best work in people, enabling them to achieve their goals.</p>
               <button className=' bg-black mt-5 p-3 rounded-xl text-center font-montserrat font-medium text-sm text-white'>
               View Details
@@ -280,7 +289,7 @@ const Home = () => {
               initial={{ rotate:0 }}
               exit={{ rotate: -45 }}
               
-              src= { bell } className='' alt="" />
+              src= { bell } className=' hidden lg:block' alt="" />
               <select name="language" className=' font-montserrat text-xs font-light text-gray-700 md:block hidden' id="">
                 <option value="EN">EN</option>
                 <option value="FR">FR</option>
@@ -290,7 +299,7 @@ const Home = () => {
 
             <div className=' flex flex-row ml-7 space-x-2 items-center justify-center'>
               <div className=' '>
-                <p className=' font-montserrat text-gray-700 font-bold text-sm'>John Doe</p>
+                <p className=' font-montserrat text-gray-700 font-bold text-xs'>{ name }</p>
                 <p className=' font-montserrat text-gray-700 font-normal text-xs text-right'>England</p>
               </div>
               <img src= { user } className=' w-[40px] h-[40px]' alt="" />
