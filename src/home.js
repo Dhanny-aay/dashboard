@@ -20,10 +20,67 @@ import Mchart from './mchart';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Newslist from './newslist';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import { initializeApp } from 'firebase/app'; 
+import { getAnalytics } from "firebase/analytics";
+import { getAuth, signInWithRedirect ,GoogleAuthProvider, getRedirectResult, onAuthStateChanged,signOut  } from "firebase/auth";
 
 const Home = () => {
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyC0orHDJb8M6MIg_P4PrnFS6rXGDr476mA",
+          authDomain: "bloggy-2d806.firebaseapp.com",
+          projectId: "bloggy-2d806",
+          storageBucket: "bloggy-2d806.appspot.com",
+          messagingSenderId: "243234796538",
+          appId: "1:243234796538:web:e4cd230612d7e07793aa43",
+          measurementId: "G-5KHV35BWT2"
+      };
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          const analytics = getAnalytics(app);
+          const auth = getAuth();
+          const provider = new GoogleAuthProvider();
+
+    function userStatus(){
+      getRedirectResult(auth)
+      .then((result)=>{
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        console.log(user);
+        // console.log(token);
+    })
+    }
+    userStatus()
+
+    const Navigate = useNavigate();
+    // sign out 
+    const signOout = ()=> {
+      signOut(auth)
+      .then(()=>{
+        Navigate('/login')
+      })
+    };
+
+    // check 
+    function checkUser(){
+      onAuthStateChanged(auth, (user) => {
+        if(user){
+          const uid = user.uid;
+          console.log(uid);
+          console.log(user);
+          console.log('Signed in')
+        }
+        else{
+          // console.log('Signed Out')
+          Navigate('/login');
+        }
+      });
+    }
+
+    checkUser();
 
   // new api 
     const url ='https://newsdata.io/api/1/news?apikey=pub_12066710874e2bee9ff50864742e719f8c042&q=blogs';
@@ -115,7 +172,7 @@ const Home = () => {
             <button className=' absolute hidden md:block bottom-0 '>
               <motion.img
               whileHover={{ scale:1.3 }}
-              src= { logout } className='w-[20px]' alt="" />
+              src= { logout } onClick={ signOout } className='w-[20px]' alt="" />
             </button>
 
           </div>

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const Newslist = (props) => {
   const news = props.news
 
-  console.log(props, news)
+  // console.log(props, news)
 
   return ( 
     <div className=' space-y-2'>
