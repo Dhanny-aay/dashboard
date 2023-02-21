@@ -8,7 +8,7 @@ import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 // import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAuth, signInWithPopup ,GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithRedirect ,GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 
 const Register = () => {
@@ -33,12 +33,12 @@ const Register = () => {
     const Navigate = useNavigate();
 
     const signInGoo = () => {
-        signInWithPopup(auth, provider)
-        .then((result)=>{
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            Navigate('/home')
-        })
+        signInWithRedirect(auth, provider)
+        // .then((result)=>{
+        //     const credential = GoogleAuthProvider.credentialFromResult(result);
+        //     const token = credential.accessToken;
+        //     Navigate('/home')
+        // })
     }
 
     // create user 

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { initializeApp } from 'firebase/app'; 
 import { getAnalytics } from "firebase/analytics";
 import { useNavigate } from 'react-router-dom';
-import { getAuth, signInWithPopup ,GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged  } from "firebase/auth";
+import { getAuth, signInWithRedirect ,GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged  } from "firebase/auth";
 
 
 const Login = () => {
@@ -30,12 +30,12 @@ const Login = () => {
     const Navigate = useNavigate();
 
     const signInGo = () => {
-        signInWithPopup(auth, provider)
-        .then((result)=>{
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            Navigate('/home')
-        })
+        signInWithRedirect(auth, provider)
+        // .then((result)=>{
+        //     const credential = GoogleAuthProvider.credentialFromResult(result);
+        //     const token = credential.accessToken;
+        //     Navigate('/home')
+        // })
     }
 
     const signIn = ()=>{
