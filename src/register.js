@@ -8,7 +8,7 @@ import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 // import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAuth, signInWithRedirect ,GoogleAuthProvider, getRedirectResult, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithRedirect ,GoogleAuthProvider, getRedirectResult, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 
 const Register = () => {
@@ -34,7 +34,7 @@ const Register = () => {
 
     const signInGoo = () => {
         signInWithRedirect(auth, provider);
-        Navigate('/home')
+        // Navigate('/home')
     }
 
     // create user 
@@ -47,10 +47,20 @@ const Register = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential)=>{
             const user = userCredential.user;
-            console.log(user)
-            console.log('Created')
+            // console.log(user)
+            // console.log('Created')
         })
     }
+
+        // check 
+        function checkUser(){
+            onAuthStateChanged(auth, (user) => {
+                if(user){
+                    Navigate('/home');
+                }
+            });
+        }
+        checkUser();
 
 
     return ( 

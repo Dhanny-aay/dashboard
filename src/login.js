@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { initializeApp } from 'firebase/app'; 
 import { getAnalytics } from "firebase/analytics";
 import { useNavigate } from 'react-router-dom';
-import { getAuth, signInWithRedirect ,GoogleAuthProvider, getRedirectResult, signInWithEmailAndPassword  } from "firebase/auth";
+import { getAuth, signInWithRedirect ,GoogleAuthProvider, getRedirectResult, signInWithEmailAndPassword, onAuthStateChanged  } from "firebase/auth";
 
 
 const Login = () => {
@@ -31,7 +31,7 @@ const Login = () => {
 
     const signInGo = () => {
         signInWithRedirect(auth, provider);
-        Navigate('/home')
+        // Navigate('/home')
     }
 
     const signIn = ()=>{
@@ -41,10 +41,19 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential)=>{
             const user = userCredential.user;
-            console.log(user)
-            console.log('Signed in')
+            // console.log(user)
+            // console.log('Signed in')
         })
     }
+    // check 
+    function checkUser(){
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                Navigate('/home');
+            }
+        });
+    }
+    checkUser();
 
     
     return ( 
