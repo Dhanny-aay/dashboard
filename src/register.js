@@ -28,6 +28,7 @@ const Register = () => {
     const analytics = getAnalytics(app);
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     
 
     const Navigate = useNavigate();
