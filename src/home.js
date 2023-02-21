@@ -44,17 +44,6 @@ const Home = () => {
           const auth = getAuth();
           const provider = new GoogleAuthProvider();
 
-    function userStatus(){
-      getRedirectResult(auth)
-      .then((result)=>{
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
-        // console.log(user);
-        // console.log(token);
-    })
-    }
-    userStatus()
 
     const Navigate = useNavigate();
     // sign out 

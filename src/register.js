@@ -8,7 +8,7 @@ import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 // import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAuth, signInWithRedirect ,GoogleAuthProvider, getRedirectResult, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup ,GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 
 const Register = () => {
@@ -33,8 +33,12 @@ const Register = () => {
     const Navigate = useNavigate();
 
     const signInGoo = () => {
-        signInWithRedirect(auth, provider);
-        // Navigate('/home')
+        signInWithPopup(auth, provider)
+        .then((result)=>{
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            Navigate('/home')
+        })
     }
 
     // create user 
@@ -93,10 +97,10 @@ const Register = () => {
                     <input name="password" id='pword' className="bg-white h-10 md:w-[350px] w-full font-montserrat text-[12px] rounded-[6px] p-[8px]" placeholder="Password" type="text" />
                     <input name="log-in" className=" bg-black hover:bg-white hover:text-black p-2 cursor-pointer text-white rounded-md w-full md:w-[350px] font-semibold delay-200 transition-colors font-montserrat text-sm" type="submit" onClick={ signUp } value={'Sign Up'} />
                         <p className=" text-xs font-montserrat font-bold">Or</p>
-                        <div onClick={ signInGoo } className=" md:w-[350px]  w-full rounded-md text-white h-10 bg-black p-2 flex justify-center items-center space-x-3 cursor-pointer delay-200 transition-colors hover:bg-white hover:text-black">
+                        <button onClick={ signInGoo } className=" md:w-[350px]  w-full rounded-md text-white h-10 bg-black p-2 flex justify-center items-center space-x-3 cursor-pointer delay-200 transition-colors hover:bg-white hover:text-black">
                             <img src={ google } className=' w-[20px]' alt="" />
                             <p className=' font-montserrat text-sm font-semibold'>Sign in with Google</p>
-                        </div>
+                        </button>
                     <span className=" text-xs font-montserrat font-light">
                         <p>Already have an account? <Link to="/login"><span className=" text-gray-500 cursor-pointer">Sign in</span></Link></p>
                     </span>

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { initializeApp } from 'firebase/app'; 
 import { getAnalytics } from "firebase/analytics";
 import { useNavigate } from 'react-router-dom';
-import { getAuth, signInWithRedirect ,GoogleAuthProvider, getRedirectResult, signInWithEmailAndPassword, onAuthStateChanged  } from "firebase/auth";
+import { getAuth, signInWithPopup ,GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged  } from "firebase/auth";
 
 
 const Login = () => {
@@ -30,8 +30,12 @@ const Login = () => {
     const Navigate = useNavigate();
 
     const signInGo = () => {
-        signInWithRedirect(auth, provider);
-        // Navigate('/home')
+        signInWithPopup(auth, provider)
+        .then((result)=>{
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            Navigate('/home')
+        })
     }
 
     const signIn = ()=>{
@@ -94,10 +98,10 @@ const Login = () => {
                     <input name="log-in" onClick={ signIn } className=" bg-black hover:bg-white hover:text-black p-2 cursor-pointer text-white rounded-md md:w-[350px] w-full font-semibold delay-200 transition-colors font-montserrat text-sm" type="submit" value={'Login'} />
 
                         <p className=" text-xs font-montserrat font-bold ">Or</p>
-                        <div onClick={ signInGo } className=" w-full md:w-[350px] rounded-md text-white h-10 bg-black p-2 flex justify-center items-center space-x-3 cursor-pointer delay-200 transition-colors hover:bg-white hover:text-black">
+                        <button onClick={ signInGo } className=" w-full md:w-[350px] rounded-md text-white h-10 bg-black p-2 flex justify-center items-center space-x-3 cursor-pointer delay-200 transition-colors hover:bg-white hover:text-black">
                             <img src={ google } className=' w-[20px]' alt="" />
                             <p className=' font-montserrat text-sm font-semibold'>Sign in with Google</p>
-                        </div>
+                        </button>
                     <span className=" text-xs font-montserrat font-light">
                         <p>Don't have an account? <Link to='/'><span className=" text-gray-500 cursor-pointer">Sign Up</span></ Link></p>
                     </span>
