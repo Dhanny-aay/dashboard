@@ -4,7 +4,7 @@ import blog from './blog.png'
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { initializeApp } from 'firebase/app'; 
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 // import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -27,6 +27,7 @@ const Register = () => {
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const auth = getAuth();
+    const db = getFirestore(app);
     const provider = new GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     
@@ -46,14 +47,21 @@ const Register = () => {
     // const [mail, setMail ] = useState('');
     // const [pword, setPword ] = useState('');
     const signUp = ()=>{
+        const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('pword').value;
 
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential)=>{
             const user = userCredential.user;
-            // console.log(user)
-            // console.log('Created')
+            const userDoc = collection(db, 'users');
+
+            const docData = {
+                uid: user.uid,
+                email: email,
+                displayname: name,
+            }
+            addDoc(userDoc, docData);
         })
     }
 
@@ -94,6 +102,7 @@ const Register = () => {
                 </span>
                 <p className=' font-montserrat text-base md:text-xl font-medium md:font-bold capitalize mt-5 lg:mt-0'>Welcome to Bloggy</p>
                 <div className=" flex flex-col w-full items-center space-y-4 mt-12">
+                    <input name="name" id='name' className=" bg-white h-10 md:w-[350px] w-full font-montserrat text-[12px] rounded-[6px] p-[8px] font-medium" placeholder="Full name" type="text" />
                     <input name="email" id='email' className=" bg-white h-10 md:w-[350px] w-full font-montserrat text-[12px] rounded-[6px] p-[8px] font-medium" placeholder="Email" type="text" />
                     <input name="password" id='pword' className="bg-white h-10 md:w-[350px] w-full font-montserrat text-[12px] rounded-[6px] p-[8px]" placeholder="Password" type="text" />
                     <input name="log-in" className=" bg-black hover:bg-white hover:text-black p-2 cursor-pointer text-white rounded-md w-full md:w-[350px] font-semibold delay-200 transition-colors font-montserrat text-sm" type="submit" onClick={ signUp } value={'Sign Up'} />

@@ -25,6 +25,7 @@ import { Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app'; 
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithRedirect ,GoogleAuthProvider, getRedirectResult, onAuthStateChanged,signOut  } from "firebase/auth";
+import { getFirestore, collection, doc, addDoc, onSnapshot, query, where, getDocs } from 'firebase/firestore';
 
 const Home = () => {
   const [name, setName]=useState('John Doe')
@@ -42,6 +43,7 @@ const Home = () => {
           const app = initializeApp(firebaseConfig);
           const analytics = getAnalytics(app);
           const auth = getAuth();
+          const db = getFirestore(app);
           const provider = new GoogleAuthProvider();
 
     function userStatus(){
@@ -76,8 +78,19 @@ const Home = () => {
 
             if (profile !== null){
             const displayName = profile.displayName;
-            const email = profile.email;
+            // const email = profile.email;
+            if(displayName !== null){
             setName(displayName);
+            }
+            else{
+              const colRef = collection(db, 'users')
+              const q = query(colRef, where('uid', '==', uid))
+              onSnapshot(q, (snapshot)=>{
+                snapshot.docs.forEach((doc)=>{
+                  setName(doc.data().displayName);
+                })
+              })
+            }
           }
 
         // console.log('Signed in')
@@ -174,7 +187,7 @@ const Home = () => {
               <button className=' block md:hidden '>
               <motion.img
               whileHover={{ scale:1.3 }}
-              src= { logout } className='md:w-[20px] w-[20px]' alt="" />
+              src= { logout } onClick={ signOout } className='md:w-[20px] w-[20px]' alt="" />
               </button>
             </div>
 
