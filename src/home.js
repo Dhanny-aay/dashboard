@@ -2,7 +2,7 @@ import homeicon from './home.png';
 import shape from './shape.png';
 import menu from './menu.png';
 import calendar from './calendar.png';
-import collection from './collection.png';
+import collectionz from './collection.png';
 import settings from './settings.png';
 import logout from './logout.png';
 import search from './search.png';
@@ -87,7 +87,8 @@ const Home = () => {
               const q = query(colRef, where('uid', '==', uid))
               onSnapshot(q, (snapshot)=>{
                 snapshot.docs.forEach((doc)=>{
-                  setName(doc.data().displayName);
+                  setName(doc.data().displayname);
+                  // console.log(doc.data().displayname);
                 })
               })
             }
@@ -177,7 +178,7 @@ const Home = () => {
               <button className=''>
               <motion.img
               whileHover={{ scale:1.3 }}
-              src= { collection } className=' md:w-[20px] w-[20px]' alt="" />
+              src= { collectionz } className=' md:w-[20px] w-[20px]' alt="" />
               </button>
               <button className=''>
               <motion.img
