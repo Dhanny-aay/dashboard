@@ -32,24 +32,42 @@ const Login = () => {
 
     const signInGo = () => {
         signInWithRedirect(auth, provider)
-        // .then((result)=>{
-        //     const credential = GoogleAuthProvider.credentialFromResult(result);
-        //     const token = credential.accessToken;
-        //     Navigate('/home')
-        // })
+        .then((result)=>{
+            // const credential = GoogleAuthProvider.credentialFromResult(result);
+            // const token = credential.accessToken;
+        })
+        .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const err = document.getElementById('error');
+            err.innerHTML=errorCode;
+            // The email of the user's account used.
+            // const email = error.customData.email;
+            // The AuthCredential type that was used.
+            // const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+            
+          });
     }
 
     const signIn = ()=>{
         const email = document.getElementById('email').value;
         const password = document.getElementById('pword').value;
-
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential)=>{
             const user = userCredential.user;
             // console.log(user)
             // console.log('Signed in')
         })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const err = document.getElementById('error');
+            err.innerHTML=errorCode;
+          });
     }
+    
     // check 
     function checkUser(){
         onAuthStateChanged(auth, (user) => {
@@ -88,6 +106,7 @@ const Login = () => {
                 <div className=" flex flex-col w-full items-center space-y-4 mt-12">
                     <input name="email" id='email' className=" bg-white h-10 md:w-[350px] w-full font-montserrat text-[12px] rounded-[6px] p-[8px] font-medium" placeholder="Email" type="text" />
                     <input name="password" id='pword' className="bg-white h-10 md:w-[350px] w-full font-montserrat text-[12px] rounded-[6px] p-[8px]" placeholder="Password" type="text" />
+                    <p id='error' className=' md:w-[350px] w-full  text-left -mt-4 text-red-600 text-xs font-medium font-montserrat'></p>
                     <span className=" flex flex-row justify-between w-full md:w-[350px]">
                         <span className=" flex flex-row items-center mr-auto space-x-1">
                             <input type="checkbox" name="" value={'yess'} id="" />

@@ -36,11 +36,23 @@ const Register = () => {
 
     const signInGoo = () => {
         signInWithRedirect(auth, provider)
-        // .then((result)=>{
-        //     const credential = GoogleAuthProvider.credentialFromResult(result);
-        //     const token = credential.accessToken;
-        //     Navigate('/home')
-        // })
+        .then((result)=>{
+            // const credential = GoogleAuthProvider.credentialFromResult(result);
+            // const token = credential.accessToken;
+        })
+        .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const err = document.getElementById('error');
+            err.innerHTML=errorCode;
+            // The email of the user's account used.
+            // const email = error.customData.email;
+            // The AuthCredential type that was used.
+            // const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+            
+          });
     }
 
     // create user 
@@ -63,6 +75,12 @@ const Register = () => {
             }
             addDoc(userDoc, docData);
         })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const err = document.getElementById('error');
+            err.innerHTML=errorCode;
+          });
     }
 
         // check 
@@ -105,6 +123,7 @@ const Register = () => {
                     <input name="name" id='name' className=" bg-white h-10 md:w-[350px] w-full font-montserrat text-[12px] rounded-[6px] p-[8px] font-medium" placeholder="Full name" type="text" />
                     <input name="email" id='email' className=" bg-white h-10 md:w-[350px] w-full font-montserrat text-[12px] rounded-[6px] p-[8px] font-medium" placeholder="Email" type="text" />
                     <input name="password" id='pword' className="bg-white h-10 md:w-[350px] w-full font-montserrat text-[12px] rounded-[6px] p-[8px]" placeholder="Password" type="text" />
+                    <p id='error' className=' md:w-[350px] w-full  text-left -mt-4 text-red-600 text-xs font-medium font-montserrat'></p>
                     <input name="log-in" className=" bg-black hover:bg-white hover:text-black p-2 cursor-pointer text-white rounded-md w-full md:w-[350px] font-semibold delay-200 transition-colors font-montserrat text-sm" type="submit" onClick={ signUp } value={'Sign Up'} />
                         <p className=" text-xs font-montserrat font-bold">Or</p>
                         <button onClick={ signInGoo } className=" md:w-[350px]  w-full rounded-md text-white h-10 bg-black p-2 flex justify-center items-center space-x-3 cursor-pointer delay-200 transition-colors hover:bg-white hover:text-black">

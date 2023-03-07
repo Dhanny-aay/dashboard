@@ -40,13 +40,19 @@ const Payment = () => {
 
        const newExp = ()=>{
         const New = document.getElementById('exp').value;
-        if(New.length == 2){
             setExp(New);
             if(New == ''){
                 setExp('John Doe')
             }
-        }
        };
+       function modifyInput() {
+        const exp = document.getElementById('exp')
+        if (exp.value.length === 2)  
+          exp.value = exp.value + '/'
+        else    
+          if (exp.value.length === 3 && exp.value.charAt(2) === '/')
+            exp.value = exp.value.replace('/', '');
+      }
 
 
     return ( 
@@ -97,14 +103,14 @@ const Payment = () => {
                     </div>
 
                     <div className=" flex flex-col mt-5 w-full md:w-[350px]">
-                        <label htmlFor="cardNumber"  className=" text-[10px] font-montserrat text-gray-400">Card Number</label>
-                        <input type="text" id='cardNumber' onInput={ newCardNo } name="cardNumber" className=" w-full md:w-[350px] p-2 rounded-md mt-1" />
+                        <label htmlFor="cardNumber" className=" text-[10px] font-montserrat text-gray-400">Card Number</label>
+                        <input type="text" id='cardNumber' maxLength={16} onInput={ newCardNo } name="cardNumber" className=" w-full md:w-[350px] p-2 rounded-md mt-1" />
                     </div>
 
                     <div className=" flex flex-row w-full md:w-[350px] justify-between mt-5">
                         <div className="flex flex-col">
                             <label htmlFor="edate" className=" text-[10px] font-montserrat text-gray-400">Expiry Date</label>
-                            <input type="text" id='exp' onInput={ newExp } name="edate" placeholder='19/28' className=" placeholder:text-xs w-[90%] p-2 rounded-md mt-1" />
+                            <input type="text" id='exp' onKeyUp={ modifyInput } maxLength={5}  onInput={ newExp } name="edate" placeholder='19/28' className=" placeholder:text-xs w-[90%] p-2 rounded-md mt-1" />
                         </div>
                         <div className="flex flex-col">
                             <label htmlFor="cvv" className=" text-[10px] font-montserrat text-gray-400">CVV Code</label>
